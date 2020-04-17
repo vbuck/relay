@@ -1,0 +1,135 @@
+{
+    "dev": {
+        "debug_mode": true
+    },
+    "console": {
+        "commands": {
+            "action:delete": "Relay\\Console\\Command\\Action\\Delete",
+            "action:create": "Relay\\Console\\Command\\Action\\Create",
+            "action:info": "Relay\\Console\\Command\\Action\\Info",
+            "action:stat": "Relay\\Console\\Command\\Action\\Stat",
+            "action:search": "Relay\\Console\\Command\\Action\\Search",
+            "handler:run": "Relay\\Console\\Command\\Handler\\Run",
+            "profile:delete": "Relay\\Console\\Command\\Profile\\Delete",
+            "profile:create": "Relay\\Console\\Command\\Profile\\Create",
+            "profile:info": "Relay\\Console\\Command\\Profile\\Info",
+            "profile:search": "Relay\\Console\\Command\\Profile\\Search",
+            "profile:stat": "Relay\\Console\\Command\\Profile\\Stat",
+            "server:start": "Relay\\Console\\Command\\Server\\Start",
+            "server:stop": "Relay\\Console\\Command\\Server\\Stop",
+            "server:status": "Relay\\Console\\Command\\Server\\Status",
+            "setup:install": "Relay\\Console\\Command\\Setup\\Install",
+            "workflow:delete": "Relay\\Console\\Command\\Workflow\\Delete",
+            "workflow:create": "Relay\\Console\\Command\\Workflow\\Create",
+            "workflow:info": "Relay\\Console\\Command\\Workflow\\Info",
+            "workflow:stat": "Relay\\Console\\Command\\Workflow\\Stat",
+            "workflow:search": "Relay\\Console\\Command\\Workflow\\Search",
+            "variable:delete": "Relay\\Console\\Command\\SystemVariable\\Delete",
+            "variable:create": "Relay\\Console\\Command\\SystemVariable\\Create",
+            "variable:info": "Relay\\Console\\Command\\SystemVariable\\Info",
+            "variable:stat": "Relay\\Console\\Command\\SystemVariable\\Stat",
+            "variable:search": "Relay\\Console\\Command\\SystemVariable\\Search"
+        }
+    },
+    "connections": {
+        "default": {
+            "host": "database",
+            "name": "relay",
+            "user": "root",
+            "pass": "root",
+            "port": "3307",
+            "charset": "utf8"
+        }
+    },
+    "providers": {
+        "Relay\\Data\\Action": {
+            "schema": {
+                "name": "default",
+                "source": "action"
+            }
+        },
+        "Relay\\Data\\Workflow": {
+            "schema": {
+                "name": "default",
+                "source": "workflow"
+            }
+        },
+        "Relay\\Data\\Profile": {
+            "schema": {
+                "name": "default",
+                "source": "profile"
+            }
+        },
+        "Relay\\Data\\SystemVariable": {
+            "schema": {
+                "name": "default",
+                "source": "variable",
+                "class": "Relay\\Data\\SystemVariable\\Schema"
+            }
+        },
+        "Relay\\Api\\RequestInterface": {
+            "type": "Relay\\Route\\Request"
+        },
+        "Relay\\Api\\ResponseInterface": {
+            "type": "Relay\\Route\\Response"
+        },
+        "Relay\\Api\\ProfilePoolInterface": {
+            "type": "Relay\\ProfilePool"
+        },
+        "Relay\\Api\\HandlerInterface": {
+            "types": {
+                "default": "Relay\\Handler\\Type\\DefaultHandler",
+                "github": "Relay\\Handler\\Type\\GitHub",
+                "forward": "Relay\\Handler\\Type\\Forward",
+                "custom": "Relay\\Handler\\Type\\Custom"
+            }
+        },
+        "Relay\\Api\\Handler\\ResultInterface": {
+            "type": "Relay\\Handler\\Result"
+        },
+        "Relay\\Api\\HandlerPoolInterface": {
+            "type": "Relay\\HandlerPool"
+        },
+        "Relay\\Api\\Workflow\\Action\\ResultInterface": {
+            "type": "Relay\\Workflow\\Action\\Result"
+        },
+        "Relay\\Api\\Workflow\\Action\\ProcessorInterface": {
+            "type": "Relay\\Workflow\\Action\\Processor"
+        },
+        "Relay\\Api\\Workflow\\ProcessorInterface": {
+            "type": "Relay\\Workflow\\Processor"
+        },
+        "Relay\\Api\\Workflow\\Action\\ParameterInterface": {
+            "type": "Relay\\Workflow\\Action\\Parameter"
+        },
+        "Relay\\Api\\Workflow\\Action\\TypeInterface": {
+            "types": {
+                "condition_environment": "Relay\\Workflow\\Action\\Type\\Condition\\EnvironmentVariable",
+                "condition_request": "Relay\\Workflow\\Action\\Type\\Condition\\Request",
+                "condition_server": "Relay\\Workflow\\Action\\Type\\Condition\\ServerVariable",
+                "condition_system": "Relay\\Workflow\\Action\\Type\\Condition\\SystemVariable",
+                "merge_request": "Relay\\Workflow\\Action\\Type\\Merge\\Request",
+                "merge_result": "Relay\\Workflow\\Action\\Type\\Merge\\Result",
+                "transform_request": "Relay\\Workflow\\Action\\Type\\Transform\\Request",
+                "transform_result": "Relay\\Workflow\\Action\\Type\\Transform\\Result",
+                "variable": "Relay\\Workflow\\Action\\Type\\SetVariable",
+                "handle": "Relay\\Workflow\\Action\\Type\\Handle"
+            }
+        },
+        "Relay\\Api\\Data\\StatisticEntityInterface": {
+            "type": "Relay\\Data\\StatisticEntity"
+        },
+        "Relay\\Api\\Tracer\\DataInterface": {
+            "type": "Relay\\Tracer\\Data"
+        },
+        "Relay\\Api\\Tracer\\ObserverInterface": {
+            "type": "Relay\\Tracer\\Observer\\Console",
+            "types": {
+                "console": "Relay\\Tracer\\Observer\\Console"
+            }
+        },
+        "Relay\\Api\\Tracer\\ObserverStorageInterface": {
+            "type": "Relay\\Tracer\\ObserverStorage"
+        }
+    }
+}

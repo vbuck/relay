@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @author    Rick Buczynski <richard.buczynski@gmail.com>
+ * @copyright 2019 Rick Buczynski. All Rights Reserved.
+ * @package   Relay
+ * @license   MIT
+ */
+
+require \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$cli = new \Relay\Console\Application();
+$cli->run();

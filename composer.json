@@ -1,0 +1,33 @@
+{
+    "name": "vbuck/relay",
+    "description": "A webhook relay for software pipelines",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rick Buczynski",
+            "email": "richard.buczynski@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "vbuck/lowly-php": "dev-master",
+        "symfony/http-foundation": "^4.0",
+        "symfony/console": "^4.0",
+        "mtdowling/jmespath.php": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Relay\\": "src"
+        }
+    },
+    "repositories": {
+        "lowly-php": {
+            "type": "vcs",
+            "url": "https://github.com/vbuck/lowly-php"
+        }
+    }
+}

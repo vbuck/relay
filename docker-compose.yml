@@ -1,0 +1,26 @@
+version: '3'
+services:
+  webserver:
+    hostname: webserver
+    build: .
+    volumes:
+      - .:/opt/relay
+    ports:
+      - '80:8888'
+    networks:
+      - shared
+  database:
+    hostname: database
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    networks:
+      - shared
+volumes:
+  data:
+networks:
+  shared:
