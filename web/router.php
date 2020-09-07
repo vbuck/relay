@@ -14,7 +14,8 @@ namespace LowlyPHP\Web;
 
 require \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-use Relay\Application;
+use Relay\Application as ApiApp;
+use Relay\Web\Application as WebApp;
 
 if (\php_sapi_name() === 'cli-server') {
     $request = \trim($_SERVER['REQUEST_URI'], '/');
@@ -27,11 +28,15 @@ if (\php_sapi_name() === 'cli-server') {
             return;
         }
 
-        /** @var \LowlyPHP\Service\ApplicationInterface $api */
-        $api = new Application();
-        $api->run();
-        return;
+        /** @var \LowlyPHP\Service\ApplicationInterface $app */
+        $app = new ApiApp();
+    } else {
+        /** @var \LowlyPHP\Service\ApplicationInterface $app */
+        $app = new WebApp();
     }
+
+    $app->run();
+    return;
 }
 
 \http_response_code(404);

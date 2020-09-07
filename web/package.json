@@ -1,0 +1,73 @@
+{
+    "name": "psa-petstore",
+    "author": "Rick Buczynski",
+    "description": "Frontend development tooling for the PSA Assessment.",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "axios-cache-adapter": "^2.3.2",
+        "core-js": "^2.6.5",
+        "localforage": "^1.7.3",
+        "vue": "^2.6.10",
+        "vue-router": "^3.0.6"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/preset-env": "^7.4.3",
+        "@vue/cli-plugin-babel": "^3.6.0",
+        "@vue/cli-plugin-eslint": "^3.6.0",
+        "@vue/cli-service": "^3.6.0",
+        "babel-eslint": "^10.0.1",
+        "babel-loader": "^8.0.5",
+        "cross-env": "^5.2.0",
+        "css-loader": "^2.1.1",
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "grunt": "~1.0.1",
+        "grunt-autoprefixer": "~3.0.4",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-less": "~1.4.1",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-eslint": "~19.0.0",
+        "grunt-exec": "^2.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "inspect-loader": "^1.0.0",
+        "load-grunt-config": "~0.19.2",
+        "path": "~0.12.7",
+        "postcss-loader": "^3.0.0",
+        "time-grunt": "~1.0.0",
+        "vue-loader": "^15.7.0",
+        "vue-style-loader": "^4.1.2",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.0"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {},
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "scripts": {
+        "build": "webpack --config build/webpack.config.dev.js"
+    }
+}

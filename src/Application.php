@@ -63,8 +63,8 @@ class Application implements ApplicationInterface
         \ob_start();
 
         $this->appManager = $appManager ?? ApplicationManager::getInstance();
+        $this->setMode();
 
-        $this->debugMode = $this->appManager->config('dev.debug_mode');
         $this->contextFactory = $this->appManager->getObject(ContextFactory::class);
         $this->responseFactory = $this->appManager->getObject(ResponseFactory::class);
         $this->requestFactory = $this->appManager->getObject(RequestFactory::class);
@@ -89,16 +89,31 @@ class Application implements ApplicationInterface
 
             $this->response = $this->responseFactory->create($error->getCode(), $message);
         } catch (\Exception $error) {
-            $this->response = $this->responseFactory->create(
-                500,
-                $this->debugMode
-                    ? "{$error->getMessage()}\n{$error->getTraceAsString()}"
-                    : 'Internal service error.'
-            );
+            if ($this->debugMode) {
+                throw $error;
+            } else {
+                $this->response = $this->responseFactory->create(
+                    500,
+                    'Internal service error.'
+                );
+            }
         }
 
         \ob_end_clean();
         $this->send();
+    }
+
+    private function setMode()
+    {
+        $this->debugMode = $this->appManager->config('dev.debug_mode');
+
+        if ($this->debugMode) {
+            if (\class_exists(\Whoops\Run::class)) {
+                $whoops = new \Whoops\Run();
+                $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+                $whoops->register();
+            }
+        }
     }
 
     /**
@@ -236,6 +251,7 @@ class Application implements ApplicationInterface
     private function route() : void
     {
         $class = $this->getClassByRoute($this->requestPath);
+        $route = null;
 
         try {
             /** @var RouteInterface $route */

@@ -1,0 +1,39 @@
+@loader-gradient-start: #f6f7f8;
+@loader-gradient-end: #edeef1;
+
+[data-loading="true"] {
+    position: relative;
+    display: block;
+}
+
+[data-loading="true"]::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: @loader-gradient-start;
+    background-image: linear-gradient(to right, @loader-gradient-start 0%, @loader-gradient-end 20%, @loader-gradient-start 40%, @loader-gradient-start 100%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: loadingSequence;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes loadingSequence {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}

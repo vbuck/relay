@@ -130,6 +130,9 @@
         },
         "Relay\\Api\\Tracer\\ObserverStorageInterface": {
             "type": "Relay\\Tracer\\ObserverStorage"
+        },
+        "LowlyPHP\\Service\\Resource\\StorageInterface": {
+            "type": "LowlyPHP\\Provider\\Resource\\Storage\\Driver\\Pdo\\Sqlite"
         }
     }
 }

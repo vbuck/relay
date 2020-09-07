@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: @base-font-family;
+    font-size: @base-font-size;
+    font-weight: @base-font-weight;
+    margin: 0;
+    padding: 0;
+}
+
+#app-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 calc(~'@{base-padding} * 4');
+}
+
+section,
+aside {
+    margin: @section-margin;
+    padding: @section-padding;
+}
+
+header,
+footer {
+    margin: 0;
+    padding: calc(~'@{base-padding} * 2.125');
+}
+
+p {
+    margin: @base-margin;
+    padding: @base-padding;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: @title-font-family;
+    font-weight: @title-font-weight;
+}
+
+h1 {
+    font-size: calc(~'@{base-font-size} * 3');
+}
+
+h2 {
+    font-size: calc(~'@{base-font-size} * 2.5');
+}
+
+h3 {
+    font-size: calc(~'@{base-font-size} * 2.125');
+}
+
+h4 {
+    font-size: calc(~'@{base-font-size} * 1.5');
+}
+
+h5 {
+    font-size: calc(~'@{base-font-size} * 1.375');
+}
+
+h6 {
+    font-size: calc(~'@{base-font-size} * 1.125');
+}
+
+a,
+button,
+input,
+select,
+textarea,
+li {
+    border-radius: @control-border-radius;
+    border-width: @control-border-width;
+    padding: @control-padding;
+}
